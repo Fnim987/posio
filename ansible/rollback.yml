@@ -1,6 +1,6 @@
 ---
 
-- name: "deploy"
+- name: "rollback"
   hosts: web
   user: ubuntu
   become: true
@@ -23,4 +23,4 @@
       changed_when: false
       
   roles:
-    - deploy
+    - rollback

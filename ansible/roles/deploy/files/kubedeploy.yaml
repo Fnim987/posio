@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: posio
+  labels:
+    app: posio
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: posio
+  template:
+    metadata:
+      labels:
+        app: posio
+    spec:
+      container:
+      - name: posio
+        image: fnim987/posio:test
+        ports:
+        - containerPort:5000
