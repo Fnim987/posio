@@ -1,0 +1,43 @@
+version: 2.1
+
+jobs:
+  lint:
+    docker:
+    - image: python:3.11-rc-slim
+    resource_class: medium
+
+    working_directory: ~/repo
+
+    steps:
+    - checkout
+    - restore_cache:
+        keys:
+        - v1-dependencies-{{ checksum "requirements.txt" }}
+        - v1-dependencies-
+    - run:
+        name: install dependencies
+        command: |
+          python3 -m venv venv
+          . venv/bin/activate
+          make install
+          wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v2.10.0/hadolint-Linux-x86_64 &&\
+          chmod +x /bin/hadolint
+    - save_cache:
+        paths:
+        - ./venv
+        key: v1-dependencies-{{ checksum "requirements.txt" }}
+    - run:
+        name: run lint
+        command: |
+          . venv/bin/activate
+          make lint 
+  build_docker:
+    docker:
+    - image: docker:stable
+    steps:
+    - checkout
+    - setup_remote_docker
+    - run:
+        name: build docker
+        command: |
+          docker build --tag=posio
