@@ -67,6 +67,7 @@ jobs:
         name: run lint
         command: |
           . venv/bin/activate
+          pip list --local
           make lint 
           
   build_and_upload_docker:
