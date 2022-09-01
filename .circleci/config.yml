@@ -22,20 +22,20 @@ commands:
             
   rollback:
     description: rollback after failed deployment
-      steps:
-        - add_ssh_keys:
-            fingerprints: ["c2:35:78:49:b6:bb:99:b2:2f:b1:88:34:c6:1b:6b:ca"]
-        - attach_workspace:
-            at: ~/
-        - run:
-            name: dependencies
-            command: |
-              apk add --update ansible
-        - run:
-            name: Deploy App
-            command: |
-              cd ansible
-              ansible-playbook -i inventory.txt rollback.yml
+    steps:
+      - add_ssh_keys:
+          fingerprints: ["c2:35:78:49:b6:bb:99:b2:2f:b1:88:34:c6:1b:6b:ca"]
+      - attach_workspace:
+          at: ~/
+      - run:
+          name: dependencies
+          command: |
+            apk add --update ansible
+      - run:
+          name: Deploy App
+          command: |
+            cd ansible
+            ansible-playbook -i inventory.txt rollback.yml
 
 jobs:
   lint:
