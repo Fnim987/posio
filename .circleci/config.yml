@@ -80,7 +80,6 @@ jobs:
         command: |
           echo "${DOCKERHUB_PASS}" | docker login --username "${DOCKERHUB_USERNAME}" --password-stdin
           docker build --tag "${IMAGE_TAG}" .
-          docker scan "${IMAGE_TAG}"
           docker push "${IMAGE_TAG}"
     #- run:
        # name: scan docker
