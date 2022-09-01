@@ -81,16 +81,6 @@ jobs:
           echo "${DOCKERHUB_PASS}" | docker login --username "${DOCKERHUB_USERNAME}" --password-stdin
           docker build --tag "${IMAGE_TAG}" .
           docker push "${IMAGE_TAG}"
-    #- run:
-       # name: scan docker
-        #command: | 
-          #echo "${DOCKERHUB_PASS}" | docker login --username "${DOCKERHUB_USERNAME}" --password-stdin
-          #docker scan "${IMAGE_TAG}"
-    #- run: 
-        #name: publish docker
-        #command: |
-          #echo "${DOCKERHUB_PASS}" | docker login --username "${DOCKERHUB_USERNAME}" --password-stdin
-          #docker push "${IMAGE_TAG}"
             
   deploy-infrastructure:
     docker:
@@ -196,9 +186,9 @@ workflows:
   posio:
     jobs:
       #- lint
-      - build_and_upload_docker
+      #- build_and_upload_docker:
           #requires: [lint]
-      #- deploy-infrastructure:
+      - deploy-infrastructure
           #requires: [build_and_upload_docker]
       #- configure-infrastructure:
           #requires: [deploy-infrastructure]
