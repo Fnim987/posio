@@ -2,7 +2,6 @@ version: 2.1
 
 orbs: 
   aws-cli: circleci/aws-cli@3.1.3
-  snyk: snyk/snyk@1.2.3
 
 executors:
   docker-publisher:
@@ -75,17 +74,20 @@ jobs:
     steps:
     - checkout
     - setup_remote_docker
+        version: 20.10.2
     - run:
         name: build docker
         command: |
           docker build --tag "${IMAGE_TAG}" .
-    - snyk/scan:
-        docker-image-name: "${IMAGE_TAG}"
+    - run:
+        name: scan docker
+        command: | 
+          docker scan "${IMAGE_TAG}"
     - run: 
         name: publish docker
         command: |
           echo "${DOCKERHUB_PASS}" | docker login --username "${DOCKERHUB_USERNAME}" --password-stdin
-            docker push "${IMAGE_TAG}"
+          docker push "${IMAGE_TAG}"
             
   deploy-infrastructure:
     docker:
