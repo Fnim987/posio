@@ -40,7 +40,7 @@ commands:
 jobs:
   lint:
     docker:
-    - image: python:3.11-rc-slim
+    - image: python:3.7.3-stretch
     resource_class: medium
 
     working_directory: ~/repo
