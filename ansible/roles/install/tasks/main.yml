@@ -5,6 +5,12 @@
       apt-get update
       apt-get install docker.io -y
       
+  - name: add user to docker group
+    ansible.builtin.user:
+      name: $USER
+      groups: docker
+      append: yes
+      
   - name: Install minikube
     shell: |      
       curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
