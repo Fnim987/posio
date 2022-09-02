@@ -12,5 +12,8 @@
   - name: start app
     shell: |      
       kubectl apply -f kubedeploy.yaml
+      
+  - name: start app
+    shell: |         
       kubectl port-forward deploy/posio 8000:5000 --address='0.0.0.0'
       
