@@ -89,6 +89,10 @@ jobs:
     steps:
       - checkout
       - run:
+          name: tar
+          command: |
+            yum -y install tar gzip
+      - run:
           name: deploy back-end infrastructure
           command: |
             aws cloudformation deploy \
@@ -170,14 +174,14 @@ jobs:
               --output text)
             export API_URL="http://${IP}:8000"
             echo ${API_URL}
-            if curl -ks ${API_URL} | grep "posio"
+            if curl -ks ${API_URL} | grep "Posio"
               then
                 return 0
               else
                 return 1
               fi
       
-      - rollback
+      #- rollback
       #- destroy-environment
 
 
