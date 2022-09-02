@@ -22,7 +22,7 @@ Resources:
     Properties:
       LaunchTemplate:
         LaunchTemplateName: Capstone
-        Version: 2
+        Version: 3
       SecurityGroups:
         - Ref: InstanceSecurityGroup
       Tags:

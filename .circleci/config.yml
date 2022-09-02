@@ -133,7 +133,7 @@ jobs:
           name: Configure server
           command: |
             cd ansible
-            ansible-playbook -i inventory.txt config.yml
+            ansible-playbook -i inventory.txt install.yml
       #- destroy-environment
       
   deploy-app:
@@ -194,8 +194,8 @@ workflows:
           #requires: [lint]
       - deploy-infrastructure
           #requires: [build_and_upload_docker]
-      #- configure-infrastructure:
-          #requires: [deploy-infrastructure]
+      - configure-infrastructure:
+          requires: [deploy-infrastructure]
       #- deploy-app:
           #requires: [configure-infrastructure]
       #- smoke-test:
