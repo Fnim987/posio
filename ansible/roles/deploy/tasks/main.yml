@@ -1,0 +1,13 @@
+---
+  - name: copy
+    become: yes
+    copy:
+      src: kubedeploy.yaml
+      dest: /home/ubuntu/kubedeploy.yaml
+      
+  - name: start app
+    shell: |
+      minikube start
+      kubectl apply -f kubedeploy.yaml
+      kubectl port-forward deploy/posio 8000:5000 --address='0.0.0.0'
+      

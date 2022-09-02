@@ -14,8 +14,8 @@ spec:
       labels:
         app: posio
     spec:
-      container:
+      containers:
       - name: posio
         image: fnim987/posio:test
         ports:
-        - containerPort:5000
+        - containerPort: 5000
