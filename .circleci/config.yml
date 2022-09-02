@@ -192,11 +192,11 @@ workflows:
       #- lint
       #- build_and_upload_docker:
           #requires: [lint]
-      - deploy-infrastructure
+      #- deploy-infrastructure
           #requires: [build_and_upload_docker]
-      - configure-infrastructure:
-          requires: [deploy-infrastructure]
-      - deploy-app:
-          requires: [configure-infrastructure]
+      #- configure-infrastructure:
+          #requires: [deploy-infrastructure]
+      - deploy-app
+          #requires: [configure-infrastructure]
       #- smoke-test:
           #requires: [deploy-app]
