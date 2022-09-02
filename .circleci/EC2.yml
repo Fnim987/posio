@@ -21,8 +21,8 @@ Resources:
     Type: AWS::EC2::Instance
     Properties:
       LaunchTemplate:
-        - LaunchTemplateName: Capstone
-          Version: 2
+        LaunchTemplateName: Capstone
+        Version: 2
       SecurityGroups:
         - Ref: InstanceSecurityGroup
       Tags:
