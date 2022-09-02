@@ -196,7 +196,7 @@ workflows:
           #requires: [build_and_upload_docker]
       #- configure-infrastructure:
           #requires: [deploy-infrastructure]
-      - deploy-app
+      - deploy-app:
           requires: [deploy-infrastructure]
       #- smoke-test:
           #requires: [deploy-app]
