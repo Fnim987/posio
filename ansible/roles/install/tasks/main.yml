@@ -7,7 +7,7 @@
       
   - name: add user to docker group
     ansible.builtin.user:
-      name: $USER
+      name: ubuntu
       groups: docker
       append: yes
       
