@@ -20,10 +20,9 @@ Resources:
   EC2Instance:
     Type: AWS::EC2::Instance
     Properties:
-      LauchTemplate:
-        - LaunchTemplateId: lt-03889438122240b09
-          LauchTemplateName: Capstone
-          Version: 1
+      LaunchTemplate:
+        - LaunchTemplateName: Capstone
+          Version: 2
       SecurityGroups:
         - Ref: InstanceSecurityGroup
       Tags:
