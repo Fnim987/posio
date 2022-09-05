@@ -29,6 +29,7 @@ commands:
           at: ~/
       - run:
           name: dependencies
+          when: on_fail
           command: |
             apk add --update ansible
       - run:
@@ -180,9 +181,7 @@ jobs:
               else
                 return 1
               fi
-      
-      
-      #- rollback
+      - rollback
       #- destroy-environment
 
 
