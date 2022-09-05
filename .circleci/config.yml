@@ -24,6 +24,12 @@ commands:
           when: on_fail
           command: |
             apk add --update ansible
+            echo [web] > ansible/inventory.txt
+            aws ec2 describe-instances \
+            --query 'Reservations[*].Instances[*].PublicIpAddress' \
+            --filters "Name=tag:Name,Values=Capstone" \
+            --output text >> ansible/inventory.txt
+            cat ansible/inventory.txt
             cd ansible
             ansible-playbook -i inventory.txt rollback.yml
 

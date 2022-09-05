@@ -31,4 +31,15 @@
     
   - name: pause
     ansible.builtin.pause:
+      seconds: 2
+
+  - name: start app
+    shell: |
+      sudo chmod +x kube.sh
+      ./kube.sh
+    async: 20
+    poll: 0
+    
+  - name: pause
+    ansible.builtin.pause:
       seconds: 15
