@@ -174,7 +174,7 @@ jobs:
               --output text)
             export API_URL="http://${IP}:8000"
             echo ${API_URL}
-            if curl -ks ${API_URL} | grep "Posio"
+            if curl -ks ${API_URL} | grep "posio"
               then
                 return 0
               else
@@ -199,5 +199,5 @@ workflows:
           #requires: [deploy-infrastructure]
       - deploy-app:
           requires: [deploy-infrastructure]
-      #- smoke-test:
-          #requires: [deploy-app]
+      - smoke-test:
+          requires: [deploy-app]

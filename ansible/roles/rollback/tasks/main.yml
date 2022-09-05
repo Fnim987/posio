@@ -1,0 +1,5 @@
+---
+
+  - name: rollback
+    shell: |
+      kubectl rollout undo deploy/posio
