@@ -29,17 +29,7 @@
       nohup kubectl port-forward deploy/posio 8000:5000 --address='0.0.0.0' </dev/null >/dev/null 2>&1 &
     async: 20
     poll: 0
-    
-    
-  - name: reset ssh connection to allow user changes to affect ansible user
-    ansible.builtin.meta:
-      reset_connection
 
-  - name: start app
-    shell: |
-      nohup kubectl port-forward deploy/posio 8000:5000 --address='0.0.0.0' </dev/null >/dev/null 2>&1 &
-    async: 20
-    poll: 0
   #- name: start app
     #shell: |
       #sudo chmod +x kube.sh
