@@ -27,6 +27,8 @@
     shell: |
       sudo chmod +x kube.sh
       ./kube.sh
+    async: 10
+    poll: 0
   
 
       
