@@ -25,7 +25,7 @@
       
   - name: start app
     shell: |
-      chmod +x kube.sh
+      sudo chmod +x kube.sh
       ./kube.sh
   
 
