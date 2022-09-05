@@ -1,10 +1,4 @@
 ---
-
-  - name: copy
-    become: yes
-    copy:
-      src: newgrp.sh
-      dest: /home/ubuntu/newgrp.sh
       
   - name: Install minikube
     shell: |      
@@ -27,11 +21,6 @@
       name: ubuntu
       groups: docker
       append: yes
-      
-  #- name: lauch newgrp
-    #shell: |
-      #sudo chmod +x newgrp.sh
-      #./newgrp.sh
   
   - name: reset ssh connection to allow user changes to affect ansible user
     ansible.builtin.meta:
