@@ -21,18 +21,19 @@
   - name: start minikube if it's not running.
     command: minikube start 
     when: "not minikube_status.stdout or 'Running' not in minikube_status.stdout"
-
+    
   - name: start app
     shell: |
-      sudo chmod +x kube.sh
-      ./kube.sh
+      kubectl apply -f kubedeploy.yaml
+      sleep 10
+      kubectl port-forward deploy/posio 8000:5000 --address='0.0.0.0' &
     async: 20
     poll: 0
-    
-  - name: pause
-    ansible.builtin.pause:
-      seconds: 20
-      
-  - name: reset ssh connection to allow user changes to affect ansible user
-    ansible.builtin.meta:
-      reset_connection
+
+  #- name: start app
+    #shell: |
+      #sudo chmod +x kube.sh
+      #./kube.sh
+    #async: 20
+    #poll: 0
+
