@@ -1,5 +1,11 @@
 ---
 
+  - name: copy
+    become: yes
+    copy:
+      src: newgrp.sh
+      dest: /home/ubuntu/newgrp.sh
+      
   - name: Install minikube
     shell: |      
       curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
@@ -22,6 +28,11 @@
       groups: docker
       append: yes
       
+  #- name: lauch newgrp
+    #shell: |
+      #chmod +x newgrp.sh
+      #./newgrp.sh
+  
   - name: reset ssh connection to allow user changes to affect ansible user
     ansible.builtin.meta:
       reset_connection    
