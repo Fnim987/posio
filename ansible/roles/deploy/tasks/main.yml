@@ -11,8 +11,6 @@
     copy:
       src: kube.sh
       dest: /home/ubuntu/kube.sh
-
-      
       
   - name: check the status of minikube.
     command: minikube status
@@ -30,6 +28,3 @@
       ./kube.sh
     async: 10
     poll: 0
-  
-
-      

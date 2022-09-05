@@ -35,5 +35,4 @@
   
   - name: reset ssh connection to allow user changes to affect ansible user
     ansible.builtin.meta:
-      reset_connection    
-      
+      reset_connection
