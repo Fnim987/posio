@@ -2,6 +2,8 @@
 
 A multiplayer geography game using Websockets.
 
+Credit to Arthur Brenaut for letting me use Posio under the MIT License for my Udacity Project
+
 Visit [https://posio.abrenaut.com/](https://posio.abrenaut.com/) for a live demo.
 
 ![Screenshot](screenshot.png)
@@ -17,24 +19,11 @@ To install dependencies:
 
     pip install -r requirements.txt
 
-To override the configuration (optional):
+## Udacity
 
-    export POSIO_SETTINGS=/path/to/config.py
+Link to Docker: [Docker](https://hub.docker.com/r/fnim987/posio)
+Server: [Posio](54.152.84.214:8000)
 
-To run the application :
-
-    python run.py
-
-Open the following URL in your browser: [http://localhost:5000](http://localhost:5000)
-
-### Using Docker
-
-Run:
-
-    docker-compose up
-
-Wait until the environment builds and server is listening,
-then go to <http://localhost:5000>.
 
 ## License
 
