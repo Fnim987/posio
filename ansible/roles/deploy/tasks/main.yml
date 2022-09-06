@@ -20,9 +20,9 @@
     shell: |
       kubectl apply -f kubedeploy.yaml
       
-  - name: Pause for 7sec
+  - name: Pause for 60sec
     ansible.builtin.pause:
-      seconds: 30
+      seconds: 60
 
   - name : logs
     shell: |
