@@ -6,12 +6,6 @@
       src: kubedeploy.yaml
       dest: /home/ubuntu/kubedeploy.yaml
       
-  - name: copy
-    become: yes
-    copy:
-      src: kube.sh
-      dest: /home/ubuntu/kube.sh
-      
   - name: check the status of minikube.
     command: minikube status
     register: minikube_status
@@ -26,9 +20,9 @@
     shell: |
       kubectl apply -f kubedeploy.yaml
       
-  - name: Pause for 15sec
+  - name: Pause for 7sec
     ansible.builtin.pause:
-      seconds: 15
+      seconds: 7
 
   - name : logs
     shell: |
@@ -44,12 +38,4 @@
       nohup kubectl port-forward deploy/posio 8000:5000 --address='0.0.0.0' </dev/null >/dev/null 2>&1 &
     async: 20
     poll: 0
-
-
-  #- name: start app
-    #shell: |
-      #sudo chmod +x kube.sh
-      #./kube.sh
-    #async: 20
-    #poll: 0
 
