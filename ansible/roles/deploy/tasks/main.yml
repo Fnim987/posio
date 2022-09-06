@@ -30,6 +30,11 @@
     async: 20
     poll: 0
 
+  - name :
+    shell: |
+      kubectl get pods
+      kubectl describe pods
+
   #- name: start app
     #shell: |
       #sudo chmod +x kube.sh
