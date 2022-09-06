@@ -22,7 +22,7 @@
       
   - name: Pause for 7sec
     ansible.builtin.pause:
-      seconds: 7
+      seconds: 30
 
   - name : logs
     shell: |
