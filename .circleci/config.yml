@@ -188,6 +188,6 @@ workflows:
       - configure-infrastructure:
          requires: [deploy-infrastructure]
       - deploy-app:
-          requires: [deploy-infrastructure]
+          requires: [configure-infrastructure]
       - smoke-test:
           requires: [deploy-app]
