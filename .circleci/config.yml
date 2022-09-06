@@ -6,7 +6,7 @@ orbs:
 executors:
   docker-publisher:
     environment:
-      IMAGE_TAG: fnim987/posio:v1.0.0
+      IMAGE_TAG: fnim987/posio:v1.0.1
     docker:
       - image: docker:stable
       
@@ -180,11 +180,11 @@ workflows:
   version: 2
   posio:
     jobs:
-      #- lint
-      #- build_and_upload_docker:
-          #requires: [lint]
-      - deploy-infrastructure
-          #requires: [build_and_upload_docker]
+      - lint
+      - build_and_upload_docker:
+          requires: [lint]
+      - deploy-infrastructure:
+          requires: [build_and_upload_docker]
       - configure-infrastructure:
          requires: [deploy-infrastructure]
       - deploy-app:
