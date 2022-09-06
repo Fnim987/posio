@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: posio
-        image: fnim987/posio:v1.0.3
+        image: fnim987/posio:test
         ports:
         - containerPort: 5000
