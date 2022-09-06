@@ -30,11 +30,14 @@
     async: 20
     poll: 0
 
-  - name :
+  - name : logs
     shell: |
       kubectl get pods
       kubectl describe pods
-
+    register: command_output
+    
+  - debug:
+      var: command_output.stdout_lines
   #- name: start app
     #shell: |
       #sudo chmod +x kube.sh
