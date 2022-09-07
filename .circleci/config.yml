@@ -173,7 +173,7 @@ jobs:
               else
                 return 1
               fi
-      #- rollback
+      - rollback
 
 
 workflows:

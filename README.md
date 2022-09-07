@@ -22,8 +22,8 @@ To install dependencies:
 ## Udacity
 
 Link to Docker: [Docker](https://hub.docker.com/r/fnim987/posio)
-Server: [Posio](54.152.84.214:8000)
-
+Server-IP http://54.210.61.15:8000/
+Github: https://github.com/Fnim987/posio
 
 ## License
 
