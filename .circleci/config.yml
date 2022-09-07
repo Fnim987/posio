@@ -6,7 +6,7 @@ orbs:
 executors:
   docker-publisher:
     environment:
-      IMAGE_TAG: fnim987/posio:v1.1.1
+      IMAGE_TAG: fnim987/posio:v1.1.2
     docker:
       - image: docker:stable
       
