@@ -10,4 +10,6 @@ RUN pip install --upgrade pip &&\
 
 EXPOSE 5000
 
+error
+
 CMD [ "python3", "run.py"]
